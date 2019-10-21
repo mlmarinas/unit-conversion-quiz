@@ -1,0 +1,14 @@
+{
+  "name": "unit-conversion-quiz",
+  "version": "1.0.0",
+  "description": "Practice quiz for converting units",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "node-sass stylesheets/main.scss css stylesheets/main.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
+}

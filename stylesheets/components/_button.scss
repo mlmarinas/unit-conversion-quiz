@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.container__btn {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+  width: 20rem;
+  text-align: center;
+  border: 0.1rem solid #56a5eb;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: $primary-color;
+  background-color: white;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 $primary-color;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+  
+  }
+  &[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+
+
+
+
