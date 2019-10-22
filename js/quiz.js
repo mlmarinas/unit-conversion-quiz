@@ -1,7 +1,5 @@
-let answer = document.querySelector(".answer__input");
-let submit = document.querySelector(".answer__submit");
-
-//List of questions
+let submitButton = document.querySelector(".answer__submit");
+let answerInputBox = document.querySelector(".answer__input");
 let questions = [
     {
         q: "50 centimeter (cm) equals how many millimeters (mm) ?",
@@ -44,34 +42,23 @@ let questions = [
         a: 15
     },
 ];
-
-// -----------------------------------------------------------------------------
-//Enables you change the range of the random number that will be used to select a question
-let getTestSelector = function (startingNumber, maximumNumber) {
-    let randomNumber = Math.floor((Math.random() * maximumNumber) + startingNumber);
-    return randomNumber;
-}
-//Random number used to select a question from "questions" array
-let randomNumber = getTestSelector(0, questions.length);
-// -----------------------------------------------------------------------------
-
-let currentQuestion = questionPicker(randomNumber);
-let score = 0;
-
-newQuestion();
+let randomNumber = Math.floor(Math.random() * questions.length) + 0;
+let answer = questions[randomNumber].a;
 
 
-//function to return a random question
-function questionPicker(questionNumber) {
-    let randomQuestion = questions[questionNumber].q;
-    return randomQuestion;
+for (let i = 0; i < questions.length; i++) {
+    randomQuestion();
+    submitButton.addEventListener("click", function () {
+        if (answer == answerInputBox.value) {
+            console.log("correct!!");
+        } else {
+            console.log("Wrong!");
+        }
+        answerInputBox.value = "";
+    });
 }
 
-submit.addEventListener("click", function () {
-    console.log(currentQuestion);
-});
-
-
-function newQuestion() {
-    document.querySelector(".quiz__question").innerHTML = currentQuestion;
+function randomQuestion() {
+    document.querySelector(".quiz__question").innerHTML = questions[randomNumber].q;
 }
+
