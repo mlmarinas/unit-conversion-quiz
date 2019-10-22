@@ -51,15 +51,27 @@ let getTestSelector = function (startingNumber, maximumNumber) {
     let randomNumber = Math.floor((Math.random() * maximumNumber) + startingNumber);
     return randomNumber;
 }
-//Range of the random number is between 0 and the length of the array, "questions";
-let randomQuestion = getTestSelector(0, questions.length);
-console.log(questions[randomQuestion].q);
+//Random number used to select a question from "questions" array
+let randomNumber = getTestSelector(0, questions.length);
 // -----------------------------------------------------------------------------
 
+let currentQuestion = questionPicker(randomNumber);
+let score = 0;
+
+newQuestion();
+
+
+//function to return a random question
+function questionPicker(questionNumber) {
+    let randomQuestion = questions[questionNumber].q;
+    return randomQuestion;
+}
+
 submit.addEventListener("click", function () {
-    if (answer.value == 10) {
-        alert("Correct!");
-    } else {
-        alert("Wrong!")
-    }
-})
+    console.log(currentQuestion);
+});
+
+
+function newQuestion() {
+    document.querySelector(".quiz__question").innerHTML = currentQuestion;
+}
